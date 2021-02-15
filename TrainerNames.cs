@@ -46,7 +46,11 @@ namespace Pokemon_Stadium_2_Randomizer
                     nameList.RemoveAt(index);
                     continue;
                 }
-                selection = selection.Substring(0, 11);
+                try
+                {
+                    selection = selection.Substring(0, 11);
+                }
+                catch { }
 
                 selectedNames.Add(selection);
                 // Pointer at string position

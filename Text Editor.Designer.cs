@@ -48,9 +48,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(21, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(188, 13);
+            this.label1.Size = new System.Drawing.Size(198, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Lines of length 12 or higer are ignored.";
+            this.label1.Text = "Lines of length 12 or higer are truncated.";
             // 
             // button_save
             // 
