@@ -1,7 +1,7 @@
 # Pokemon-Stadium-2-Randomizer
 A randomizer for gym leader castle, so far.
 
-This is a randomizer for Pokemon Stadium 2. What this does is randomizes movesets of all rental Pokemon. In addition, all the Pokemon belonging to trainers in the Gym Leader Castle have been randomized. 
+This is a randomizer for Pokemon Stadium 2. What this does is randomizes movesets of all rental Pokemon. In addition, all the Pokemon belonging to trainers in the Gym Leader Castle have been randomized. This creates a new ROM for you in a ROM folder in the directory where the original was. THE ORIGINAL IS NOT MODIFIED. Alsoo, runners can share their experience without sharing ROMs by the seed entry option. 0 is random.
 
 There are two optional checkboxes. You can select 'Metronome Only' to offer a truly random experience. Or you can check 'Leader has legendary,' which ensures the leader has Mewtwo, Mew, Ho-oh, Lugia, or Celebi.
 
