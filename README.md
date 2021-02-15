@@ -5,8 +5,11 @@ This is a randomizer for Pokemon Stadium 2. What this does is randomizes moveset
 
 There are two optional checkboxes. You can select 'Metronome Only' to offer a truly random experience. Or you can check 'Leader has legendary,' which ensures the leader has Mewtwo, Mew, Ho-oh, Lugia, or Celebi.
 
-There is also a neat feature where you can choose trainer names and the trainer names are randomized from that pool. 11 characters is the limit. Any longer names will be cut off. 
+There is also a neat feature where you can choose trainer names and the trainer names are randomized from that pool. 11 characters is the limit. Any longer names will be cut off at randomization time. Also removed are strings of length 1 or lower.
 
 NOTE:
 Text gets changed to purple automatically when a Pokemon knows a move it shouldn't.
 Opponent enemy portraits are bugged. This is merely aesthetic. This was a result of randomizing the Pokemon.
+
+# Download
+https://download1581.mediafire.com/m7ufo33fqdhg/49otctbiq7s7cjr/Pokemon+Stadium+2+Randomizer+Setup.exe
