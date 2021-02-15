@@ -99,6 +99,7 @@
             0,
             0,
             0});
+            this.numericUpDown_selections.Visible = false;
             // 
             // label1
             // 
@@ -120,7 +121,8 @@
             this.numericUpDown_seed.Name = "numericUpDown_seed";
             this.numericUpDown_seed.Size = new System.Drawing.Size(75, 20);
             this.numericUpDown_seed.TabIndex = 5;
-            this.toolTip1.SetToolTip(this.numericUpDown_seed, "Set seed to 1 for a\r\ntruly random experience");
+            this.numericUpDown_seed.TabStop = false;
+            this.toolTip1.SetToolTip(this.numericUpDown_seed, "Set seed to 0 for a\r\ntruly random experience");
             // 
             // checkBox_mewtwo
             // 
@@ -151,6 +153,7 @@
             this.button_randomize.Size = new System.Drawing.Size(75, 23);
             this.button_randomize.TabIndex = 2;
             this.button_randomize.Text = "Randomize";
+            this.toolTip1.SetToolTip(this.button_randomize, "Do it. You won\'t.");
             this.button_randomize.UseVisualStyleBackColor = true;
             this.button_randomize.Click += new System.EventHandler(this.button_randomize_Click);
             // 

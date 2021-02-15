@@ -69,6 +69,12 @@ namespace Pokemon_Stadium_2_Randomizer
                 names = String.Join("\n", file);
             }
             catch { }
+
+            try
+            {
+                this.Icon = new Icon("portrait_qTR_icon.ico");
+            }
+            catch { }
         }
         private void Init()
         {

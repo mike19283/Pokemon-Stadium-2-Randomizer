@@ -36,7 +36,7 @@ namespace Pokemon_Stadium_2_Randomizer
             {
                 var index = SelectRandomStringIndex(nameList, seen);
                 var selection = nameList[index];
-                if (selection.Length >= 12 || selection.Length <= 1)
+                if (selection.Length <= 1)
                 {
                     nameList.RemoveAt(index);
                     continue;
@@ -46,6 +46,7 @@ namespace Pokemon_Stadium_2_Randomizer
                     nameList.RemoveAt(index);
                     continue;
                 }
+                selection = selection.Substring(0, 11);
 
                 selectedNames.Add(selection);
                 // Pointer at string position
