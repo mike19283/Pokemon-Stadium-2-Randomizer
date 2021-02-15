@@ -11,7 +11,7 @@ NOTE:
 
 -Text gets changed to purple automatically when a Pokemon knows a move it shouldn't.
 
--Opponent enemy portraits are bugged. This is merely aesthetic. This was a result of randomizing the Pokemon.
+-Pokemon portraits (the icon in the HUD) are bugged. This is merely aesthetic. This was a result of randomizing the Pokemon.
 
 
 # Download
