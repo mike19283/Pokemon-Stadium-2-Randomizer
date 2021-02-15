@@ -13,6 +13,10 @@ NOTE:
 
 -Pokemon portraits (the icon in the HUD) are bugged. This is merely aesthetic. This was a result of randomizing the Pokemon.
 
+#Known bugs
+
+Currently, there's a problem if you do metronome only. *Intended fix* Take out PP consumption in that mode.
+
 
 # Download
 https://download1592.mediafire.com/83uuuxw6osxg/0fng95760rgav8z/Pokemon+Stadium+2+Randomizer+-+0.017.zip
