@@ -44,6 +44,7 @@
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.checkBox_happiness = new System.Windows.Forms.CheckBox();
             this.panel_pokemonRandoOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_selections)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_seed)).BeginInit();
@@ -52,6 +53,7 @@
             // 
             // panel_pokemonRandoOptions
             // 
+            this.panel_pokemonRandoOptions.Controls.Add(this.checkBox_happiness);
             this.panel_pokemonRandoOptions.Controls.Add(this.label2);
             this.panel_pokemonRandoOptions.Controls.Add(this.numericUpDown_selections);
             this.panel_pokemonRandoOptions.Controls.Add(this.label1);
@@ -70,7 +72,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 63);
+            this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(105, 26);
             this.label2.TabIndex = 8;
@@ -79,7 +81,7 @@
             // 
             // numericUpDown_selections
             // 
-            this.numericUpDown_selections.Location = new System.Drawing.Point(12, 92);
+            this.numericUpDown_selections.Location = new System.Drawing.Point(6, 29);
             this.numericUpDown_selections.Maximum = new decimal(new int[] {
             6,
             0,
@@ -104,7 +106,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(130, 172);
+            this.label1.Location = new System.Drawing.Point(130, 194);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 6;
@@ -112,7 +114,7 @@
             // 
             // numericUpDown_seed
             // 
-            this.numericUpDown_seed.Location = new System.Drawing.Point(110, 188);
+            this.numericUpDown_seed.Location = new System.Drawing.Point(110, 210);
             this.numericUpDown_seed.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -127,18 +129,18 @@
             // checkBox_mewtwo
             // 
             this.checkBox_mewtwo.AutoSize = true;
-            this.checkBox_mewtwo.Location = new System.Drawing.Point(110, 134);
+            this.checkBox_mewtwo.Location = new System.Drawing.Point(110, 118);
             this.checkBox_mewtwo.Name = "checkBox_mewtwo";
-            this.checkBox_mewtwo.Size = new System.Drawing.Size(128, 17);
+            this.checkBox_mewtwo.Size = new System.Drawing.Size(134, 17);
             this.checkBox_mewtwo.TabIndex = 4;
-            this.checkBox_mewtwo.Text = "Leader has legendary";
+            this.checkBox_mewtwo.Text = "Leader Has Legendary";
             this.toolTip1.SetToolTip(this.checkBox_mewtwo, "Guarantee leader has a\r\nlegendary");
             this.checkBox_mewtwo.UseVisualStyleBackColor = true;
             // 
             // checkBox_metronome
             // 
             this.checkBox_metronome.AutoSize = true;
-            this.checkBox_metronome.Location = new System.Drawing.Point(110, 92);
+            this.checkBox_metronome.Location = new System.Drawing.Point(110, 73);
             this.checkBox_metronome.Name = "checkBox_metronome";
             this.checkBox_metronome.Size = new System.Drawing.Size(103, 17);
             this.checkBox_metronome.TabIndex = 3;
@@ -148,7 +150,7 @@
             // 
             // button_randomize
             // 
-            this.button_randomize.Location = new System.Drawing.Point(110, 214);
+            this.button_randomize.Location = new System.Drawing.Point(110, 236);
             this.button_randomize.Name = "button_randomize";
             this.button_randomize.Size = new System.Drawing.Size(75, 23);
             this.button_randomize.TabIndex = 2;
@@ -191,23 +193,33 @@
             // loadz64ToolStripMenuItem
             // 
             this.loadz64ToolStripMenuItem.Name = "loadz64ToolStripMenuItem";
-            this.loadz64ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadz64ToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.loadz64ToolStripMenuItem.Text = "Load (*.z64)";
             this.loadz64ToolStripMenuItem.Click += new System.EventHandler(this.loadz64ToolStripMenuItem_Click_1);
             // 
             // checkForUpdatesToolStripMenuItem
             // 
             this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
-            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.checkForUpdatesToolStripMenuItem.Text = "Check for updates";
             this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // checkBox_happiness
+            // 
+            this.checkBox_happiness.AutoSize = true;
+            this.checkBox_happiness.Location = new System.Drawing.Point(110, 158);
+            this.checkBox_happiness.Name = "checkBox_happiness";
+            this.checkBox_happiness.Size = new System.Drawing.Size(130, 30);
+            this.checkBox_happiness.TabIndex = 9;
+            this.checkBox_happiness.Text = "Randomize Pokemon \r\nHappiness";
+            this.checkBox_happiness.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -247,6 +259,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.CheckBox checkBox_happiness;
     }
 }
 

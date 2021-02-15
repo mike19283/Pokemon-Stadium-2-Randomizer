@@ -8,7 +8,7 @@ namespace Pokemon_Stadium_2_Randomizer
 {
     static class Version
     {
-        private static string versionString = "Version 0.016";
+        private static string versionString = "Version 0.017";
         public static string downloadLink;
         public static bool currentVersion;
         private static string pasteLink = "https://pastebin.com/ECHhEd2G";

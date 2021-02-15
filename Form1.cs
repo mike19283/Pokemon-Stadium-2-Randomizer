@@ -75,6 +75,8 @@ namespace Pokemon_Stadium_2_Randomizer
                 this.Icon = new Icon("portrait_qTR_icon.ico");
             }
             catch { }
+
+            //trackBar_friendliness_ValueChanged(0, new EventArgs());
         }
         private void Init()
         {
@@ -279,9 +281,11 @@ namespace Pokemon_Stadium_2_Randomizer
                     rom.Write8(move, index++);
 
                 }
+
                 if (checkBox_metronome.Checked)
                 {
                     index = offset + 4;
+                    //rom.Write8(0x76, index++);
                     rom.Write8(0x76, index++);
                     rom.Write8(0x76, index++);
                     rom.Write8(0x76, index++);
@@ -289,6 +293,11 @@ namespace Pokemon_Stadium_2_Randomizer
                     //rom.Write8(0x00, index++);
                 }
 
+                if (checkBox_happiness.Checked)
+                {
+                    index++;
+                    rom.Write8((byte)Global.rng.Next(0,255), index);
+                }
 
                 offset += 0x18;
             }
@@ -304,5 +313,6 @@ namespace Pokemon_Stadium_2_Randomizer
         {
             Application.Exit();
         }
+
     }
 }

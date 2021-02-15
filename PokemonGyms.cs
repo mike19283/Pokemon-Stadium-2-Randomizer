@@ -58,6 +58,8 @@ namespace Pokemon_Stadium_2_Randomizer
                         gym[index++] = 0x76;
                         gym[index++] = 0x76;
                     }
+                    index++;
+                    gym[index] = (byte)Global.rng.Next(0, 255);
 
                 }
                 // Match name up to pokemon used
