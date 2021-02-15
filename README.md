@@ -13,7 +13,7 @@ NOTE:
 
 -Pokemon portraits (the icon in the HUD) are bugged. This is merely aesthetic. This was a result of randomizing the Pokemon.
 
-#Known bugs
+# Known bugs
 
 Currently, there's a problem if you do metronome only. *Intended fix* Take out PP consumption in that mode.
 
