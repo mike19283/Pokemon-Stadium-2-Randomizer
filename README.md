@@ -20,3 +20,4 @@ NOTE:
 
 # Download
 https://github.com/mike19283/Pokemon-Stadium-2-Randomizer/blob/main/Pokemon%20Stadium%202%20Randomizer%20-%200.019.zip
+
