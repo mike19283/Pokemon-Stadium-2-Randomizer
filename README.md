@@ -19,4 +19,4 @@ Currently, there's a problem if you do metronome only. ***Intended fix***: Take 
 
 
 # Download
-https://download1650.mediafire.com/a10licoab54g/o8s3djwsfnh7l8o/Pokemon+Stadium+2+Randomizer+-+0.018.zip
+https://download1493.mediafire.com/twdyutzkwfqg/7vo7dz16v4cl4lz/Pokemon+Stadium+2+Randomizer+-+0.019.zip
