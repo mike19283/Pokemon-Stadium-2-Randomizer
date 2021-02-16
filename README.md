@@ -15,7 +15,7 @@ NOTE:
 
 # Known bugs
 
-Currently, there's a problem if you do metronome only. ***Intended fix***: Take out PP consumption in that mode.
+~~Currently, there's a problem if you do metronome only. ***Intended fix***: Take out PP consumption in that mode.
 
 
 # Download
