@@ -287,9 +287,7 @@ namespace Pokemon_Stadium_2_Randomizer
                     index = offset + 4;
                     //rom.Write8(0x76, index++);
                     rom.Write8(0x76, index++);
-                    rom.Write8(0x76, index++);
-                    rom.Write8(0x76, index++);
-                    rom.Write8(0x76, index++);
+                    rom.Write8(0x00, index++);
                     //rom.Write8(0x00, index++);
                 }
 

@@ -8,17 +8,20 @@ namespace Pokemon_Stadium_2_Randomizer
 {
     static class Version
     {
-        private static string versionString = "Version 0.017";
+        private static string versionString = "Version 0.018";
         public static string downloadLink;
-        public static bool currentVersion;
+        public static bool difVersion;
         private static string pasteLink = "https://pastebin.com/ECHhEd2G";
         static List<string> changeLog;
         private static string programName = "Pokemon Stadium 2 Randomizer";
+        private static string messageHeader;
+        private static string message = "";
 
         private static void IsUpdateAvailable()
         {
             try
             {
+                changeLog = new List<string>();
                     //throw new System.ArgumentException();
 
                 // Get current version from my pastebin
@@ -36,10 +39,15 @@ namespace Pokemon_Stadium_2_Randomizer
                 string[] log = Regex.Split(websiteStr, "\\r\\n");
                 downloadLink = log[1];
 
-                currentVersion = !(versionString == log[0]);
+                difVersion = !(versionString == log[0]);
 
                 changeLog = new List<string>(log);
-                changeLog.RemoveAt(1);
+                changeLog.RemoveAt(0);
+                changeLog.RemoveAt(0);
+
+                messageHeader = changeLog[0];
+                changeLog.RemoveAt(0);
+                message = changeLog[0];
                 changeLog.RemoveAt(0);
 
             }
@@ -47,7 +55,7 @@ namespace Pokemon_Stadium_2_Randomizer
             catch (Exception ex)
             {
                     MessageBox.Show("Trouble connecting to the internet. You may be running outdated software!", "Pokemon Name Bot");
-                    currentVersion = false;
+                    difVersion = false;
             }
 
             
@@ -57,7 +65,7 @@ namespace Pokemon_Stadium_2_Randomizer
         {
             IsUpdateAvailable();
 
-            if (currentVersion)
+            if (difVersion)
             {
                 WillUserUpdate();
             }
@@ -73,7 +81,11 @@ namespace Pokemon_Stadium_2_Randomizer
         {
 
             IsUpdateAvailable();
-            if (currentVersion)
+            if (message != "")
+            {
+                MessageBox.Show(message, messageHeader);
+            }
+            if (difVersion)
             {
                 WillUserUpdate();
             }
@@ -85,7 +97,8 @@ namespace Pokemon_Stadium_2_Randomizer
             // Does the user want to update now?
             if (MessageBox.Show("Your version is outdated. Update now?", programName, MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                MessageBox.Show("Please contact RainbowSprinklez on discord (Rainbow #2405) for any updates", programName);
+                MessageBox.Show("Please go to the github for any updates", programName);
+                System.Diagnostics.Process.Start("https://github.com/mike19283/Pokemon-Stadium-2-Randomizer");
                 SaveFileDialog s = new SaveFileDialog();
                 s.Title = "Change log";
                 s.Filter = "Text (*.txt)|*.txt";

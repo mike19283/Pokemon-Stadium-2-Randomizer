@@ -219,6 +219,7 @@
             this.checkBox_happiness.Size = new System.Drawing.Size(130, 30);
             this.checkBox_happiness.TabIndex = 9;
             this.checkBox_happiness.Text = "Randomize Pokemon \r\nHappiness";
+            this.toolTip1.SetToolTip(this.checkBox_happiness, "Affects the power of \r\nfrustration and return");
             this.checkBox_happiness.UseVisualStyleBackColor = true;
             // 
             // Form1
