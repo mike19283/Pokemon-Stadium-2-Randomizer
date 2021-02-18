@@ -17,8 +17,8 @@ NOTE:
 
 ~~Currently, there's a problem if you do metronome only. ***Intended fix***: Take out PP consumption in that mode.~~
 
-![alt text](https://i.imgur.com/7cpHwmh.png)
+![alt text](https://i.imgur.com/A1dhAPn.png)
 
 # Download
-https://github.com/mike19283/Pokemon-Stadium-2-Randomizer/blob/main/Pokemon%20Stadium%202%20Randomizer%20-%200.019.zip
+https://github.com/mike19283/Pokemon-Stadium-2-Randomizer/blob/main/Pokemon%20Stadium%202%20Randomizer%20-%200.020.zip
 
