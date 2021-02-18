@@ -15,6 +15,8 @@ NOTE:
 
 # Known bugs
 
+There's a problem with your inventory if you cancel the final check
+
 ~~Currently, there's a problem if you do metronome only. ***Intended fix***: Take out PP consumption in that mode.~~
 
 ![alt text](https://i.imgur.com/A1dhAPn.png)
