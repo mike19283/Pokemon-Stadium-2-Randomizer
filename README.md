@@ -40,3 +40,5 @@ Metronome fix!
 https://datacrystal.romhacking.net/wiki/Pok%C3%A9mon_Stadium_2:ROM_map
 
 https://jrra.zone/pokemon-stadium-2/
+
+Shoutouts to [this](https://github.com/Dunstklinge/Stadium_2_Randomizer) guy who gave me ideas
