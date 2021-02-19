@@ -55,8 +55,10 @@ namespace Pokemon_Stadium_2_Randomizer
                         index = poke.address + 4;
                         gym[index++] = 0x76;
                         gym[index++] = 0x00;
+                        gym[index++] = 0x00;
+                        gym[index++] = 0x00;
                     }
-                    index++;
+                    index = poke.address + 4 + 5;
                     gym[index] = (byte)Global.rng.Next(0, 255);
 
                 }

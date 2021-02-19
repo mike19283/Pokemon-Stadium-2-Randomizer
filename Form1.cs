@@ -76,6 +76,10 @@ namespace Pokemon_Stadium_2_Randomizer
             }
             catch { }
 
+            comboBox_CPUInventory.SelectedIndex = 5;
+            comboBox_inventory.SelectedIndex = 5;
+            comboBox_battleStyle.SelectedIndex = 2;
+
             //trackBar_friendliness_ValueChanged(0, new EventArgs());
         }
         private void Init()
@@ -108,6 +112,20 @@ namespace Pokemon_Stadium_2_Randomizer
             {
                 Cursor.Current = Cursors.WaitCursor;
 
+                // Changes amount of Pokemon you could have
+                //e2580
+                //e2494
+                byte inventory = (byte)(Convert.ToByte(comboBox_inventory.SelectedItem));
+                rom.Write8(inventory, 0xe2583);
+                rom.Write8(inventory, 0xfb837);
+
+                //e9e2c 34 02 00 xx
+                // Battle style
+                int styleAddress = 0xe9e2c;
+                int style = 0x34020000;
+                byte selection = Convert.ToByte(comboBox_battleStyle.SelectedIndex + 1);
+                rom.Write32(style | selection, styleAddress);
+                
                 if (numericUpDown_seed.Value != 0)
                 {
                     Global.rng = new Random((int)numericUpDown_seed.Value);
@@ -140,6 +158,15 @@ namespace Pokemon_Stadium_2_Randomizer
                 // Little cup
                 RandomizeMovesByOffset(0x1708494, 5);
 
+                if (checkBox_metronome.Checked)
+                {
+                    int curr = 0x397410;
+                    rom.Write8(0x00, curr++);
+                    rom.Write8(0x00, curr++);
+                    rom.Write8(0x00, curr++);
+                    rom.Write8(0x00, curr++);
+                }
+
                 PokemonGyms gym = new PokemonGyms(rom);
 
                 var count = 0;
@@ -152,7 +179,7 @@ namespace Pokemon_Stadium_2_Randomizer
                     gym.RandomizeGym(checkBox_metronome.Checked, checkBox_mewtwo.Checked);
 
                     gym.DevHack();
-                    gym.CPUSelection((byte)numericUpDown_selections.Value);
+                    gym.CPUSelection((byte)Convert.ToByte(comboBox_CPUInventory.SelectedItem));
 
                     gym.WriteToROM();
 
@@ -288,7 +315,10 @@ namespace Pokemon_Stadium_2_Randomizer
                     //rom.Write8(0x76, index++);
                     rom.Write8(0x76, index++);
                     rom.Write8(0x00, index++);
+                    rom.Write8(0x00, index++);
+                    rom.Write8(0x00, index++);
                     //rom.Write8(0x00, index++);
+
                 }
 
                 if (checkBox_happiness.Checked)

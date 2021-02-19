@@ -60,6 +60,18 @@ namespace Pokemon_Stadium_2_Randomizer
         {
             rom[address] = val;
         }
+        public void Write16(int val, int address)
+        {
+            rom[--address] = (byte)(val >> 8);
+            rom[++address] = (byte)(val >> 0);
+        }
+        public void Write32(int val, int address)
+        {
+            rom[address++] = (byte)(val >> 24);
+            rom[address++] = (byte)(val >> 16);
+            rom[address++] = (byte)(val >> 8);
+            rom[address++] = (byte)(val >> 0);
+        }
         public void WriteArrToROM(byte[] arr, int destIndex)
         {
             Array.Copy(arr, 0, rom, destIndex, arr.Length);
