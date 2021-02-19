@@ -22,5 +22,5 @@ There's a problem with your inventory if you cancel the final check
 ![alt text](https://i.imgur.com/A1dhAPn.png)
 
 # Download
-https://github.com/mike19283/Pokemon-Stadium-2-Randomizer/blob/main/Pokemon%20Stadium%202%20Randomizer%20-%200.020.zip
+https://github.com/mike19283/Pokemon-Stadium-2-Randomizer/blob/main/Pokemon%20Stadium%202%20Randomizer%20-%200.021.zip
 
