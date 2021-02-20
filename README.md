@@ -13,6 +13,10 @@ NOTE:
 
 -Pokemon portraits (the icon in the HUD) are bugged. This is merely aesthetic. This was a result of randomizing the Pokemon.
 
+***Note***
+
+Seed number does not take into account checkboxes
+
 # Known bugs
 
 ~~Enabling random items breaks Pokemon you select~~
