@@ -15,7 +15,7 @@ NOTE:
 
 # Known bugs
 
-Enabling random items breaks Pokemon you select
+~~Enabling random items breaks Pokemon you select~~
 
 ~~There's a problem with your inventory if you cancel the final check~~
 
@@ -24,9 +24,12 @@ Enabling random items breaks Pokemon you select
 ![alt text](https://i.imgur.com/838XcKx.png)
 
 # Download
-https://github.com/mike19283/Pokemon-Stadium-2-Randomizer/blob/main/Pokemon%20Stadium%202%20Randomizer%20-%200.024.zip
+https://github.com/mike19283/Pokemon-Stadium-2-Randomizer/blob/main/Pokemon%20Stadium%202%20Randomizer%20-%200.026.zip
 
 # Past Updates
+
+***Version 0.026***
+Fixed item bug
 
 ***Version 0.024***
 Overhauled the whole thing. Completely new design. Also added random items and stats.
