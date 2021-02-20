@@ -298,6 +298,7 @@ namespace Pokemon_Stadium_2_Randomizer
             // 0x170bb24
             while (rom.Read8(offset) == lvl)
             {
+                var pkmn = rom.ReadSubArray(offset, 0x18, rom.rom);
                 int moves = 4;
                 int index = offset + 4;
                 if (checkBox_rental_moves.Checked)
@@ -316,8 +317,9 @@ namespace Pokemon_Stadium_2_Randomizer
                 }
 
                 if (checkBox_rental_items.Checked)
-                    // Items
-                    rom.Write8((byte)Global.rng.Next(0x1e, 0xaf), offset + 2);
+                {
+                    Global.WriteItems(pkmn);
+                }
 
                 if (checkBox_rental_mmetronome.Checked)
                 {
@@ -353,7 +355,7 @@ namespace Pokemon_Stadium_2_Randomizer
 
                 }
 
-
+                rom.WriteArrToROM(pkmn, offset);
                 offset += 0x18;
             }
 

@@ -69,8 +69,10 @@ namespace Pokemon_Stadium_2_Randomizer
                     }
                     if (items)
                     {
-                        index = poke.address + 2;
-                        gym[index] = (byte)Global.rng.Next(0x1e, 0xaf);
+                        var arr = rom.ReadSubArray(poke.address, 0x18, gym);
+                        Global.WriteItems(arr);
+                        Array.Copy(arr, 0, gym, poke.address, arr.Length);
+
                     }
 
                     if (stats)

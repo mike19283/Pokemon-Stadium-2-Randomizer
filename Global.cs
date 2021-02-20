@@ -30,6 +30,33 @@ namespace Pokemon_Stadium_2_Randomizer
                     (arr[address + 3] << 0)
                     );
         }
+        public static void WriteItems(byte[] arr)
+        {
+            // Items rom.Write8((byte)Global.rng.Next(0x1e, 0xaf), offset + 2);
+            int[] allowed = new int[] 
+            {
+                88,82,81,73,76,77,
+                74,78,79,80,83,84,
+                109,98,96,125,117,
+                119,84,83,146,138,
+                139,140,143,144,150,
+                151,152
+            };
+            int num = rng.Next(0x1e, 0xa8);
+
+            while (!allowed.Contains(num))
+            {
+                num = rng.Next(0x1e, 0xa8);
+            }
+            arr[2] = (byte)num;
+
+        }
+        private static void Write16(int val, int index, byte[] arr)
+        {
+            arr[index++] = (byte)(val >> 8);
+            arr[index++] = (byte)(val >> 0);
+        }
+
 
     }
 }

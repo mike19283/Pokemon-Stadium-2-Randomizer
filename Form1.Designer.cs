@@ -135,7 +135,7 @@
             this.checkBox_glc_happiness.Name = "checkBox_glc_happiness";
             this.checkBox_glc_happiness.Size = new System.Drawing.Size(76, 30);
             this.checkBox_glc_happiness.TabIndex = 9;
-            this.checkBox_glc_happiness.Text = "\nHappiness";
+            this.checkBox_glc_happiness.Text = "Happiness";
             this.toolTip1.SetToolTip(this.checkBox_glc_happiness, "Affects the power of \r\nfrustration and return");
             this.checkBox_glc_happiness.UseVisualStyleBackColor = true;
             // 
