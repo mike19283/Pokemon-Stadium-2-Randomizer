@@ -19,12 +19,15 @@ NOTE:
 
 ~~Currently, there's a problem if you do metronome only. ***Intended fix***: Take out PP consumption in that mode.~~
 
-![alt text](https://i.imgur.com/JCUiMQD.png)
+![alt text](https://i.imgur.com/838XcKx.png)
 
 # Download
-https://github.com/mike19283/Pokemon-Stadium-2-Randomizer/blob/main/Pokemon%20Stadium%202%20Randomizer%20-%200.021.zip
+https://github.com/mike19283/Pokemon-Stadium-2-Randomizer/blob/main/Pokemon%20Stadium%202%20Randomizer%20-%200.024.zip
 
 # Past Updates
+
+***Version 0.024***
+Overhauled the whole thing. Completely new design. Also added random items and stats.
 
 ***Version 0.021***
 Select battle style, eg. 1v1, 2v2
