@@ -16,13 +16,16 @@ namespace Pokemon_Stadium_2_Randomizer
         public int nicknameOffset;
         public int selection = 6;
         public bool rocket = false;
+        public bool poke;
+        public bool items;
+        public bool stats;
 
         public PokemonGyms (ROM rom)
         {
             this.rom = rom;
         }
 
-        public void RandomizeGym(bool metronome, bool mewtwo)
+        public void RandomizeGym(bool metronome, bool mewtwo, bool happiness, bool rMoves, bool leftovers)
         {
             // Randomize pokemon
             for (int i = 0; i < trainers.Count; i++)
@@ -33,7 +36,8 @@ namespace Pokemon_Stadium_2_Randomizer
                     var poke = trainer.trainerPokemon[j];
                     byte rand = (byte)Global.GetRandomPkmnIndex();
                     int addr = poke.address + 1;
-                    gym[addr] = rand;
+                    if (this.poke)
+                        gym[addr] = rand;
                     //gym[addr + 1] = 0;
                     poke.pokemon[1] = rand;
                     poke.GetPokemonName();
@@ -41,7 +45,7 @@ namespace Pokemon_Stadium_2_Randomizer
                     // Randomize moves
                     int moves = 4;
                     int index = poke.address + 4;
-                    while (moves-- > 0)
+                    while (moves-- > 0 && this.poke)
                     {
                         byte move = (byte)Global.rng.Next(1, 0xfb);
                         while (move == 0xa5)
@@ -58,8 +62,34 @@ namespace Pokemon_Stadium_2_Randomizer
                         gym[index++] = 0x00;
                         gym[index++] = 0x00;
                     }
-                    index = poke.address + 4 + 5;
-                    gym[index] = (byte)Global.rng.Next(0, 255);
+                    if (happiness)
+                    {
+                        index = poke.address + 4 + 5;
+                        gym[index] = (byte)Global.rng.Next(0, 255);
+                    }
+                    if (items)
+                    {
+                        index = poke.address + 2;
+                        gym[index] = (byte)Global.rng.Next(0x1e, 0xaf);
+                    }
+
+                    if (stats)
+                    {
+                        // Stat index
+                        index = poke.address + 10;
+                        int statAmount = 5;
+                        while (statAmount-- > 0)
+                        {
+                            int r = Global.rng.Next(0, 0x10000);
+                            Write16(r, index);
+                            index += 2;
+                        }
+                        // Change dv values
+                        int rand2 = Global.rng.Next(0x100, 0x10000);
+                        Write16(rand2, index);
+
+
+                    }
 
                 }
                 // Match name up to pokemon used
@@ -76,6 +106,19 @@ namespace Pokemon_Stadium_2_Randomizer
                 firstMon.pokemon[1] = legend;
                 var x = firstMon.GetPokemonName();
             }
+            if ((leftovers && gymIndex != 0x17106c0))
+            {
+                var leader = trainers[TrainersInGymCount - 1];
+                var firstMon = leader.trainerPokemon[0];
+                gym[firstMon.address + 2] = 0x92;
+
+
+            }
+        }
+        private void Write16(int val, int index)
+        {
+            gym[index++] = (byte)(val >> 8);
+            gym[index++] = (byte)(val >> 0);
         }
         public void DevHack()
         {
@@ -183,9 +226,13 @@ namespace Pokemon_Stadium_2_Randomizer
                     arr[ptr++] = @byte;
                 }
             }
-            
-            rom.WriteArrToROM(arr, offset);
+            if (this.poke)
+                rom.WriteArrToROM(arr, offset);
 
+        }
+        public void Misc(bool left)
+        {
+//            for (int i = 0)
         }
     }
 }

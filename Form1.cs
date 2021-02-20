@@ -140,7 +140,7 @@ namespace Pokemon_Stadium_2_Randomizer
                 }
 
 
-                if (names != "")
+                if (names != "" && checkBox_glc_names.Checked)
                 {
                     TrainerNames tn = new TrainerNames(names, rom);
 
@@ -153,12 +153,12 @@ namespace Pokemon_Stadium_2_Randomizer
                 RandomizeMovesByOffset(0x170bb24, 50);
 
                 // Prime cup
-                RandomizeMovesByOffset(0x1708CB4, 100);
+                //RandomizeMovesByOffset(0x1708CB4, 100);
 
                 // Little cup
-                RandomizeMovesByOffset(0x1708494, 5);
+                //RandomizeMovesByOffset(0x1708494, 5);
 
-                if (checkBox_metronome.Checked)
+                if (checkBox_rental_mmetronome.Checked || checkBox_glc_metronome.Checked)
                 {
                     int curr = 0x397410;
                     rom.Write8(0x00, curr++);
@@ -176,7 +176,7 @@ namespace Pokemon_Stadium_2_Randomizer
                     gym = GetGym(0x1700000 | index);
                     if (index == 0x100b0)
                         gym.rocket = true;
-                    gym.RandomizeGym(checkBox_metronome.Checked, checkBox_mewtwo.Checked);
+                    gym.RandomizeGym(checkBox_glc_metronome.Checked, checkBox_glc_legend.Checked, checkBox_glc_happiness.Checked, true, checkBox_leftoverChallennge.Checked);
 
                     gym.DevHack();
                     gym.CPUSelection((byte)Convert.ToByte(comboBox_CPUInventory.SelectedItem));
@@ -251,6 +251,9 @@ namespace Pokemon_Stadium_2_Randomizer
         {
             PokemonGyms @return = new PokemonGyms(rom);
             bool end = false;
+            @return.poke = checkBox_glc_pokemon.Checked;
+            @return.items = checkBox_glc_items.Checked;
+            @return.stats = checkBox_glc_stats.Checked;
 
             @return.gymIndex = address;
             int gymStart = address;
@@ -295,21 +298,28 @@ namespace Pokemon_Stadium_2_Randomizer
             // 0x170bb24
             while (rom.Read8(offset) == lvl)
             {
-                // Randomize moves
                 int moves = 4;
                 int index = offset + 4;
-                while (moves-- > 0)
+                if (checkBox_rental_moves.Checked)
                 {
-                    byte move = (byte)Global.rng.Next(1, 0xfb);
-                    while (move == 0xa5)
+                    // Randomize moves
+                    while (moves-- > 0)
                     {
-                        move = (byte)Global.rng.Next(1, 0xfb);
-                    }
-                    rom.Write8(move, index++);
+                        byte move = (byte)Global.rng.Next(1, 0xfb);
+                        while (move == 0xa5)
+                        {
+                            move = (byte)Global.rng.Next(1, 0xfb);
+                        }
+                        rom.Write8(move, index++);
 
+                    }
                 }
 
-                if (checkBox_metronome.Checked)
+                if (checkBox_rental_items.Checked)
+                    // Items
+                    rom.Write8((byte)Global.rng.Next(0x1e, 0xaf), offset + 2);
+
+                if (checkBox_rental_mmetronome.Checked)
                 {
                     index = offset + 4;
                     //rom.Write8(0x76, index++);
@@ -321,11 +331,28 @@ namespace Pokemon_Stadium_2_Randomizer
 
                 }
 
-                if (checkBox_happiness.Checked)
+                if (checkBox_rental_happiness.Checked)
                 {
-                    index++;
-                    rom.Write8((byte)Global.rng.Next(0,255), index);
+                    rom.Write8((byte)Global.rng.Next(0,255), offset + 9);
                 }
+
+                if (checkBox_rental_stats.Checked)
+                {
+                    // Stat index
+                    index = offset + 10;
+                    int statAmount = 5;
+                    while (statAmount-- > 0)
+                    {
+                        int rand = Global.rng.Next(0, 0x10000);
+                        rom.Write16(rand, index);
+                        index += 2;
+                    }
+                    // Change dv values
+                    int rand2 = Global.rng.Next(0x100, 0x10000);
+                    rom.Write16(rand2, index);
+
+                }
+
 
                 offset += 0x18;
             }
@@ -342,5 +369,9 @@ namespace Pokemon_Stadium_2_Randomizer
             Application.Exit();
         }
 
+        private void checkBox_glc_pokemon_CheckedChanged(object sender, EventArgs e)
+        {
+            checkBox_glc_pokemon.Checked = true;
+        }
     }
 }
