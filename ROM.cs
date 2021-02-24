@@ -97,10 +97,23 @@ namespace Pokemon_Stadium_2_Randomizer
             System.IO.Directory.CreateDirectory(fileName.Substring(0, index) + "\\ROMs");
 
 
-            System.IO.File.WriteAllBytes(fileName.Substring(0, index) + "\\ROMs\\Pokemon Stadium 2 Randomizer " + DateTime.Now.ToString("M_d_yyyy") + " Seed - " + Global.seed.ToString() + ".z64", rom.ToArray()); //Include date and seed
+            System.IO.File.WriteAllBytes(fileName.Substring(0, index) + "\\ROMs\\Pokemon Stadium 2 Randomizer " + DateTime.Now.ToString("M_d_yyyy") + " Seed - " + Randomization.seed.ToString() + ".z64", rom.ToArray()); //Include date and seed
             MessageBox.Show("Randomized!");
         }
-
+        public double GetChecksum()
+        {
+            double cs = 0;
+            var temp = rom.Skip(0x1000).Take(0x100000).ToArray();
+            foreach (var b in temp)
+            {
+                cs += b;
+            }
+            return cs;
+        }
+        public void RestoreFromBackup()
+        {
+            rom = (new List<byte>(backupRom)).ToArray();
+        }
 
     }
 }

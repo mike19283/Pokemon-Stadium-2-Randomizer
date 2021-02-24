@@ -38,6 +38,7 @@ namespace Pokemon_Stadium_2_Randomizer
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         };
         List<PokemonGyms> gyms = new List<PokemonGyms>();
+        double checksumInit;
 
 
         public Form1()
@@ -87,6 +88,7 @@ namespace Pokemon_Stadium_2_Randomizer
             if (rom.successfullyLoaded)
             {
                 panel_pokemonRandoOptions.Visible = true;
+                checksumInit = rom.GetChecksum();
             }
         }
 
@@ -110,6 +112,10 @@ namespace Pokemon_Stadium_2_Randomizer
         {
             try
             {
+                //638 24-0s
+                var nopArr = Enumerable.Repeat((byte)0, 24).ToArray();
+                rom.WriteArrToROM(nopArr, 0x638);
+
                 Cursor.Current = Cursors.WaitCursor;
 
                 // Changes amount of Pokemon you could have
@@ -128,14 +134,14 @@ namespace Pokemon_Stadium_2_Randomizer
                 
                 if (numericUpDown_seed.Value != 0)
                 {
-                    Global.rng = new Random((int)numericUpDown_seed.Value);
-                    Global.seed = (int)numericUpDown_seed.Value;
+                    Randomization.rng = new Random((int)numericUpDown_seed.Value);
+                    Randomization.seed = (int)numericUpDown_seed.Value;
                 }
                 else
                 {
                     var temp = new Random(Environment.TickCount);
-                    Global.seed = temp.Next(1, 1000000);
-                    Global.rng = new Random(Global.seed);
+                    Randomization.seed = temp.Next(1, 1000000);
+                    Randomization.rng = new Random(Randomization.seed);
 
                 }
 
@@ -153,10 +159,10 @@ namespace Pokemon_Stadium_2_Randomizer
                 RandomizeMovesByOffset(0x170bb24, 50);
 
                 // Prime cup
-                //RandomizeMovesByOffset(0x1708CB4, 100);
+                RandomizeMovesByOffset(0x1708CB4, 100);
 
                 // Little cup
-                //RandomizeMovesByOffset(0x1708494, 5);
+                RandomizeMovesByOffset(0x1708494, 5);
 
                 if (checkBox_rental_mmetronome.Checked || checkBox_glc_metronome.Checked)
                 {
@@ -245,6 +251,7 @@ namespace Pokemon_Stadium_2_Randomizer
                 Application.Exit();
             }
 
+            rom.RestoreFromBackup();
         }
 
         private PokemonGyms GetGym(int address)
@@ -299,61 +306,17 @@ namespace Pokemon_Stadium_2_Randomizer
             while (rom.Read8(offset) == lvl)
             {
                 var pkmn = rom.ReadSubArray(offset, 0x18, rom.rom);
-                int moves = 4;
-                int index = offset + 4;
-                if (checkBox_rental_moves.Checked)
-                {
-                    // Randomize moves
-                    while (moves-- > 0)
-                    {
-                        byte move = (byte)Global.rng.Next(1, 0xfb);
-                        while (move == 0xa5)
-                        {
-                            move = (byte)Global.rng.Next(1, 0xfb);
-                        }
-                        rom.Write8(move, index++);
+                int index;
+                // Randomize moves
+                Randomization.Moveset(pkmn, checkBox_rental_moves.Checked);
 
-                    }
-                }
+                Randomization.WriteItems(pkmn, checkBox_rental_items.Checked);
 
-                if (checkBox_rental_items.Checked)
-                {
-                    Global.WriteItems(pkmn);
-                }
+                Randomization.Happiness(pkmn, checkBox_rental_happiness.Checked);
 
-                if (checkBox_rental_mmetronome.Checked)
-                {
-                    index = offset + 4;
-                    //rom.Write8(0x76, index++);
-                    rom.Write8(0x76, index++);
-                    rom.Write8(0x00, index++);
-                    rom.Write8(0x00, index++);
-                    rom.Write8(0x00, index++);
-                    //rom.Write8(0x00, index++);
+                Randomization.Stats(pkmn, checkBox_rental_stats.Checked);
 
-                }
-
-                if (checkBox_rental_happiness.Checked)
-                {
-                    rom.Write8((byte)Global.rng.Next(0,255), offset + 9);
-                }
-
-                if (checkBox_rental_stats.Checked)
-                {
-                    // Stat index
-                    index = offset + 10;
-                    int statAmount = 5;
-                    while (statAmount-- > 0)
-                    {
-                        int rand = Global.rng.Next(0, 0x10000);
-                        rom.Write16(rand, index);
-                        index += 2;
-                    }
-                    // Change dv values
-                    int rand2 = Global.rng.Next(0x100, 0x10000);
-                    rom.Write16(rand2, index);
-
-                }
+                Randomization.Metronome(pkmn, checkBox_rental_mmetronome.Checked);
 
                 rom.WriteArrToROM(pkmn, offset);
                 offset += 0x18;

@@ -93,10 +93,10 @@ namespace Pokemon_Stadium_2_Randomizer
         {
             if (times++ <= pointers.Count)
             {
-                int num = Global.rng.Next(0, pointers.Count);
+                int num = Randomization.rng.Next(0, pointers.Count);
                 while (seen.Contains(num))
                 {
-                    num = Global.rng.Next(0, pointers.Count);
+                    num = Randomization.rng.Next(0, pointers.Count);
                 }
                 seen.Add(num);
                 return num;
@@ -104,14 +104,14 @@ namespace Pokemon_Stadium_2_Randomizer
             }
             else
             {
-                return Global.rng.Next(0, pointers.Count);
+                return Randomization.rng.Next(0, pointers.Count);
             }
         }
         public int SelectRandomStringIndex(List<string> list, List<int> seen)
         {
             //if (list.Count == seen.Count)
             //{
-            return Global.rng.Next(0, list.Count);
+            return Randomization.rng.Next(0, list.Count);
             //}
             //else
             //{
