@@ -21,7 +21,7 @@ Seed number does not take into account checkboxes
 
 # Known bugs
 
--There is an issue where this hack won't run when pj64 is not in debug mode
+~~There is an issue where this hack won't run when pj64 is not in debug mode~~
 
 ~~Enabling random items breaks Pokemon you select~~
 
@@ -37,7 +37,7 @@ https://github.com/mike19283/Pokemon-Stadium-2-Randomizer/blob/main/Pokemon%20St
 # Past Updates
 
 ***Version 0.029***
-Vallidated checksum
+Validated checksum
 
 ***Version 0.026***
 Fixed item bug
