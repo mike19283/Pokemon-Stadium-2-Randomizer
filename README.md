@@ -21,6 +21,8 @@ Seed number does not take into account checkboxes
 
 # Known bugs
 
+-There is an issue where this hack won't run when pj64 is not in debug mode
+
 ~~Enabling random items breaks Pokemon you select~~
 
 ~~There's a problem with your inventory if you cancel the final check~~
