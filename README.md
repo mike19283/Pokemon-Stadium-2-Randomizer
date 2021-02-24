@@ -32,9 +32,12 @@ Seed number does not take into account checkboxes
 ![alt text](https://i.imgur.com/838XcKx.png)
 
 # Download
-https://github.com/mike19283/Pokemon-Stadium-2-Randomizer/blob/main/Pokemon%20Stadium%202%20Randomizer%20-%200.026.zip
+https://github.com/mike19283/Pokemon-Stadium-2-Randomizer/blob/main/Pokemon%20Stadium%202%20Randomizer%20-%200.029.zip
 
 # Past Updates
+
+***Version 0.029***
+Vallidated checksum
 
 ***Version 0.026***
 Fixed item bug
