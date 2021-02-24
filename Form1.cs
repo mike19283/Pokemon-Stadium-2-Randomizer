@@ -113,6 +113,7 @@ namespace Pokemon_Stadium_2_Randomizer
             try
             {
                 //638 24-0s
+                // Skip checksum verify
                 var nopArr = Enumerable.Repeat((byte)0, 24).ToArray();
                 rom.WriteArrToROM(nopArr, 0x638);
 
