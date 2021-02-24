@@ -38,6 +38,7 @@ https://github.com/mike19283/Pokemon-Stadium-2-Randomizer/blob/main/Pokemon%20St
 
 ***Version 0.029***
 Skipped checksum verification
+NNintendo block any of their games from running when modified. I forgot to disable that previously. Oops!
 
 ***Version 0.026***
 Fixed item bug
