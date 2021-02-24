@@ -37,7 +37,7 @@ https://github.com/mike19283/Pokemon-Stadium-2-Randomizer/blob/main/Pokemon%20St
 # Past Updates
 
 ***Version 0.029***
-Validated checksum
+Skipped checksum verification
 
 ***Version 0.026***
 Fixed item bug
