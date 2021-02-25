@@ -5,8 +5,6 @@ This is a randomizer for Pokemon Stadium 2. What this does is randomizes moveset
 
 Rentals are now randomized everywhere.
 
-There are three optional checkboxes. You can select 'Metronome Only' to offer a truly random experience. Or you can check 'Leader has legendary,' which ensures the leader has Mewtwo, Mew, Ho-oh, Lugia, or Celebi. Or you can check 'randomize happiness,' which affects the strength of return/frustration, a move based on whether you have high or low happiness, respectively.
-
 There is also a neat feature where you can choose trainer names and the trainer names are randomized from that pool. 11 characters is the limit. Any longer names will be cut off at randomization time. Also removed are strings of length 1 or lower.
 
 NOTE:
