@@ -15,7 +15,7 @@ NOTE:
 
 ***Note***
 
-Seed number does not take into account checkboxes
+Seed number does not take into account checkboxes/names
 
 # Known bugs/ToDo
 
