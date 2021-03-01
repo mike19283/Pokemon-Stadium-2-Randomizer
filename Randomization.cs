@@ -68,14 +68,14 @@ namespace Pokemon_Stadium_2_Randomizer
             if (randomize)
                 arr[addr] = rand;
         }
-        public static void Moveset(byte[] arr, bool randomize)
+        public static void Moveset(byte[] arr, bool randomize, int index = 4)
         {
             // Randomize moves
             int moves = 4;
-            int index = 4;
             List<int> seenMoves = new List<int>();
             while (moves-- > 0 && randomize)
             {
+
                 byte move = (byte)rng.Next(1, 0xfb);
                 while (move == 0xa5 && !seenMoves.Contains(move))
                 {
@@ -84,7 +84,16 @@ namespace Pokemon_Stadium_2_Randomizer
                 seenMoves.Add(move);
                 arr[index++] = move;
             }
-
+        }
+        public static void MovesetSanity(byte[] arr, List<byte[]> moves)
+        {
+            // Randomize moves
+            List<int> seenMoves = new List<int>();
+            var pkmnNum = arr[1];
+            arr[4] = moves[pkmnNum][0];
+            arr[5] = moves[pkmnNum][1];
+            arr[6] = moves[pkmnNum][2];
+            arr[7] = moves[pkmnNum][3];
         }
         public static void Metronome (byte[] arr, bool metronome)
         {

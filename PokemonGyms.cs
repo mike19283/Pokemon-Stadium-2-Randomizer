@@ -19,6 +19,8 @@ namespace Pokemon_Stadium_2_Randomizer
         public bool poke;
         public bool items;
         public bool stats;
+        public bool sanity;
+        public List<byte[]> moves;
 
         public PokemonGyms (ROM rom)
         {
@@ -39,6 +41,11 @@ namespace Pokemon_Stadium_2_Randomizer
                     poke.GetPokemonName();
 
                     Randomization.Moveset(pokeArr, rMoves);
+
+                    if (sanity)
+                    {
+                        Randomization.MovesetSanity(pokeArr, moves);
+                    }
 
                     Randomization.Metronome(pokeArr, metronome);
 

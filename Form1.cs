@@ -39,6 +39,7 @@ namespace Pokemon_Stadium_2_Randomizer
         };
         List<PokemonGyms> gyms = new List<PokemonGyms>();
         double checksumInit;
+        public List<byte[]> moves;
 
 
         public Form1()
@@ -82,6 +83,19 @@ namespace Pokemon_Stadium_2_Randomizer
             comboBox_battleStyle.SelectedIndex = 2;
 
             //trackBar_friendliness_ValueChanged(0, new EventArgs());
+        }
+        public List<byte[]> GetMoves()
+        {
+            List<byte[]> @return = new List<byte[]>();
+            @return.Add(new byte[] { });
+            // Loop through every pokemon, assigning moves
+            for (int i = 1; i < 0x100; i++)
+            {
+                var moveArr = new byte[4];
+                Randomization.Moveset(moveArr, true, 0);
+                @return.Add(moveArr);
+            }
+            return @return;
         }
         private void Init()
         {
@@ -132,6 +146,7 @@ namespace Pokemon_Stadium_2_Randomizer
                 int style = 0x34020000;
                 byte selection = Convert.ToByte(comboBox_battleStyle.SelectedIndex + 1);
                 rom.Write32(style | selection, styleAddress);
+
                 
                 if (numericUpDown_seed.Value != 0)
                 {
@@ -146,6 +161,7 @@ namespace Pokemon_Stadium_2_Randomizer
 
                 }
 
+                moves = GetMoves();
 
                 if (names != "" && checkBox_glc_names.Checked)
                 {
@@ -262,6 +278,8 @@ namespace Pokemon_Stadium_2_Randomizer
             @return.poke = checkBox_glc_pokemon.Checked;
             @return.items = checkBox_glc_items.Checked;
             @return.stats = checkBox_glc_stats.Checked;
+            @return.moves = moves;
+            @return.sanity = checkBox_moveSanity.Checked;
 
             @return.gymIndex = address;
             int gymStart = address;
@@ -308,8 +326,14 @@ namespace Pokemon_Stadium_2_Randomizer
             {
                 var pkmn = rom.ReadSubArray(offset, 0x18, rom.rom);
                 int index;
+                var m = checkBox_moveSanity.Checked;
                 // Randomize moves
                 Randomization.Moveset(pkmn, checkBox_rental_moves.Checked);
+
+                if (checkBox_moveSanity.Checked)
+                {
+                    Randomization.MovesetSanity(pkmn, moves);
+                }
 
                 Randomization.WriteItems(pkmn, checkBox_rental_items.Checked);
 
