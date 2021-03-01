@@ -19,7 +19,7 @@ Seed number does not take into account checkboxes/names
 
 # Known bugs/ToDo
 
-Add move sanity ie trainer pokemon have the same moveset of rentals
+~~Add move sanity ie trainer pokemon have the same moveset of rentals~~
 
 ~~There is an issue where this hack won't run when pj64 is not in debug mode~~
 
@@ -35,6 +35,9 @@ Add move sanity ie trainer pokemon have the same moveset of rentals
 https://github.com/mike19283/Pokemon-Stadium-2-Randomizer/blob/main/Pokemon%20Stadium%202%20Randomizer%20-%200.029.zip
 
 # Past Updates
+
+***Version 0.030***
+Added move sanity
 
 ***Version 0.029***
 Skipped checksum verification.
