@@ -19,7 +19,7 @@ Seed number does not take into account checkboxes/names
 
 # Known bugs/ToDo
 
-~~Add move sanity ie trainer pokemon have the same moveset of rentals~~
+~~Add move sanity ie trainer pokemon have the same moveset as rentals~~
 
 ~~There is an issue where this hack won't run when pj64 is not in debug mode~~
 
