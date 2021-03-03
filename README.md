@@ -19,6 +19,8 @@ Seed number does not take into account checkboxes/names
 
 # Known bugs/ToDo
 
+Add stat sanity
+
 Moves can repeat
 
 ~~Add move sanity ie trainer pokemon have the same moveset as rentals~~
