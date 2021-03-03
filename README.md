@@ -21,9 +21,9 @@ Seed number does not take into account checkboxes/names
 
 Add item sanity
 
-Add stat sanity
+~~Add stat sanity~~
 
-Moves can repeat
+~~Moves can repeat~~
 
 ~~Add move sanity ie trainer pokemon have the same moveset as rentals~~
 
@@ -38,9 +38,12 @@ Moves can repeat
 ![alt text](https://i.imgur.com/qbtVVda.png)
 
 # Download
-https://github.com/mike19283/Pokemon-Stadium-2-Randomizer/blob/main/Pokemon%20Stadium%202%20Randomizer%20-%200.029.zip
+https://github.com/mike19283/Pokemon-Stadium-2-Randomizer/blob/main/Pokemon%20Stadium%202%20Randomizer%20-%200.031.zip
 
 # Past Updates
+
+***Version 0.031***
+Added stat sanity and prevented repeat moves
 
 ***Version 0.030***
 Added move sanity
