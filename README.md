@@ -19,6 +19,8 @@ Seed number does not take into account checkboxes/names
 
 # Known bugs/ToDo
 
+Add item sanity
+
 Add stat sanity
 
 Moves can repeat
