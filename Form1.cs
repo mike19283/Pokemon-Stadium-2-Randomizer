@@ -39,7 +39,9 @@ namespace Pokemon_Stadium_2_Randomizer
         };
         List<PokemonGyms> gyms = new List<PokemonGyms>();
         double checksumInit;
-        public List<byte[]> moves;
+        public List<byte[]> moveSanity;
+        public List<byte[]> statSanity;
+        public List<byte[]> itemSanity;
 
 
         public Form1()
@@ -84,7 +86,7 @@ namespace Pokemon_Stadium_2_Randomizer
 
             //trackBar_friendliness_ValueChanged(0, new EventArgs());
         }
-        public List<byte[]> GetMoves()
+        public List<byte[]> GetMoveSanity()
         {
             List<byte[]> @return = new List<byte[]>();
             @return.Add(new byte[] { });
@@ -94,6 +96,19 @@ namespace Pokemon_Stadium_2_Randomizer
                 var moveArr = new byte[4];
                 Randomization.Moveset(moveArr, true, 0);
                 @return.Add(moveArr);
+            }
+            return @return;
+        }
+        public List<byte[]> GetStatSanity()
+        {
+            List<byte[]> @return = new List<byte[]>();
+            @return.Add(new byte[] { });
+            // Loop through every pokemon, assigning moves
+            for (int i = 1; i < 0x100; i++)
+            {
+                var statArr = new byte[12];
+                Randomization.Stats(statArr, true, 0);
+                @return.Add(statArr);
             }
             return @return;
         }
@@ -161,7 +176,8 @@ namespace Pokemon_Stadium_2_Randomizer
 
                 }
 
-                moves = GetMoves();
+                moveSanity = GetMoveSanity();
+                statSanity = GetStatSanity();
 
                 if (names != "" && checkBox_glc_names.Checked)
                 {
@@ -278,8 +294,10 @@ namespace Pokemon_Stadium_2_Randomizer
             @return.poke = checkBox_glc_pokemon.Checked;
             @return.items = checkBox_glc_items.Checked;
             @return.stats = checkBox_glc_stats.Checked;
-            @return.moves = moves;
+            @return.moveSanity = moveSanity;
             @return.sanity = checkBox_moveSanity.Checked;
+            @return.statSanity = checkBox_statSanity.Checked;
+            @return.statSanityList = statSanity;
 
             @return.gymIndex = address;
             int gymStart = address;
@@ -332,7 +350,7 @@ namespace Pokemon_Stadium_2_Randomizer
 
                 if (checkBox_moveSanity.Checked)
                 {
-                    Randomization.MovesetSanity(pkmn, moves);
+                    Randomization.MovesetSanity(pkmn, moveSanity);
                 }
 
                 Randomization.WriteItems(pkmn, checkBox_rental_items.Checked);
@@ -340,6 +358,11 @@ namespace Pokemon_Stadium_2_Randomizer
                 Randomization.Happiness(pkmn, checkBox_rental_happiness.Checked);
 
                 Randomization.Stats(pkmn, checkBox_rental_stats.Checked);
+
+                if (checkBox_statSanity.Checked)
+                {
+                    Randomization.StatSanity(pkmn, statSanity);
+                }
 
                 Randomization.Metronome(pkmn, checkBox_rental_mmetronome.Checked);
 
@@ -362,6 +385,20 @@ namespace Pokemon_Stadium_2_Randomizer
         private void checkBox_glc_pokemon_CheckedChanged(object sender, EventArgs e)
         {
             checkBox_glc_pokemon.Checked = true;
+        }
+
+        private void checkBox_glc_stats_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_glc_stats.Checked)
+            {
+                checkBox_statSanity.Enabled = true;
+                checkBox_statSanity.Checked = true;
+            }
+            else
+            {
+                checkBox_statSanity.Enabled = false;
+                checkBox_statSanity.Checked = false;
+            }
         }
     }
 }

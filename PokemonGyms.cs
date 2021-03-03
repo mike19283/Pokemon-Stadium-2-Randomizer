@@ -20,7 +20,11 @@ namespace Pokemon_Stadium_2_Randomizer
         public bool items;
         public bool stats;
         public bool sanity;
-        public List<byte[]> moves;
+        public bool statSanity;
+        public bool itemSanity;
+        public List<byte[]> moveSanity;
+        public List<byte[]> statSanityList;
+        public List<byte[]> itemSanityList;
 
         public PokemonGyms (ROM rom)
         {
@@ -38,13 +42,14 @@ namespace Pokemon_Stadium_2_Randomizer
                     var poke = trainer.trainerPokemon[j];
                     var pokeArr = poke.pokemon;
                     Randomization.Pokemon(pokeArr, true);
+
                     poke.GetPokemonName();
 
                     Randomization.Moveset(pokeArr, rMoves);
 
                     if (sanity)
                     {
-                        Randomization.MovesetSanity(pokeArr, moves);
+                        Randomization.MovesetSanity(pokeArr, moveSanity);
                     }
 
                     Randomization.Metronome(pokeArr, metronome);
@@ -54,6 +59,9 @@ namespace Pokemon_Stadium_2_Randomizer
                     Randomization.WriteItems(pokeArr, items);
 
                     Randomization.Stats(pokeArr, stats);
+
+                    if (statSanity)
+                        Randomization.StatSanity(pokeArr, statSanityList);
 
                     Array.Copy(pokeArr, 0, gym, poke.address, 0x18);
 

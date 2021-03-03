@@ -70,6 +70,7 @@ namespace Pokemon_Stadium_2_Randomizer
         }
         public static void Moveset(byte[] arr, bool randomize, int index = 4)
         {
+
             // Randomize moves
             int moves = 4;
             List<int> seenMoves = new List<int>();
@@ -77,7 +78,7 @@ namespace Pokemon_Stadium_2_Randomizer
             {
 
                 byte move = (byte)rng.Next(1, 0xfb);
-                while (move == 0xa5 && !seenMoves.Contains(move))
+                while (move == 0xa5 || seenMoves.Contains(move))
                 {
                     move = (byte)rng.Next(1, 0xfb);
                 }
@@ -88,12 +89,22 @@ namespace Pokemon_Stadium_2_Randomizer
         public static void MovesetSanity(byte[] arr, List<byte[]> moves)
         {
             // Randomize moves
-            List<int> seenMoves = new List<int>();
             var pkmnNum = arr[1];
             arr[4] = moves[pkmnNum][0];
             arr[5] = moves[pkmnNum][1];
             arr[6] = moves[pkmnNum][2];
             arr[7] = moves[pkmnNum][3];
+        }
+
+        public static void StatSanity(byte[] arr, List<byte[]> stats)
+        {
+            var pkmnNum = arr[1];
+            var statIndex = 10;
+            for (int i = 0; i < 12; i++)
+            {
+                // index in pkmn = selected
+                arr[statIndex + i] = stats[pkmnNum][i];
+            }
         }
         public static void Metronome (byte[] arr, bool metronome)
         {
@@ -113,12 +124,11 @@ namespace Pokemon_Stadium_2_Randomizer
                 arr[9] = (byte)Randomization.rng.Next(0, 255);
             }
         }
-        public static void Stats (byte[] arr, bool stats)
+        public static void Stats (byte[] arr, bool stats, int index = 10)
         {
             if (stats)
             {
                 // Stat index
-                int index = 10;
                 int statAmount = 5;
                 while (statAmount-- > 0)
                 {
@@ -127,7 +137,7 @@ namespace Pokemon_Stadium_2_Randomizer
                     index += 2;
                 }
                 // Change dv values
-                int rand2 = Randomization.rng.Next(0x100, 0x10000);
+                int rand2 = Randomization.rng.Next(0x00, 0x10000);
                 Write16(rand2, index, arr);
 
 

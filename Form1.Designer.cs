@@ -40,6 +40,7 @@
             this.comboBox_inventory = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.checkBox_moveSanity = new System.Windows.Forms.CheckBox();
             this.checkBox_glc_pokemon = new System.Windows.Forms.CheckBox();
             this.checkBox_glc_names = new System.Windows.Forms.CheckBox();
             this.checkBox_glc_metronome = new System.Windows.Forms.CheckBox();
@@ -63,7 +64,7 @@
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.checkBox_moveSanity = new System.Windows.Forms.CheckBox();
+            this.checkBox_statSanity = new System.Windows.Forms.CheckBox();
             this.panel_pokemonRandoOptions.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -199,6 +200,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.checkBox_statSanity);
             this.tabPage2.Controls.Add(this.checkBox_moveSanity);
             this.tabPage2.Controls.Add(this.checkBox_glc_pokemon);
             this.tabPage2.Controls.Add(this.checkBox_glc_names);
@@ -217,6 +219,19 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Trainer (GLC) Pokemon";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_moveSanity
+            // 
+            this.checkBox_moveSanity.AutoSize = true;
+            this.checkBox_moveSanity.Checked = true;
+            this.checkBox_moveSanity.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_moveSanity.Location = new System.Drawing.Point(286, 107);
+            this.checkBox_moveSanity.Name = "checkBox_moveSanity";
+            this.checkBox_moveSanity.Size = new System.Drawing.Size(83, 17);
+            this.checkBox_moveSanity.TabIndex = 22;
+            this.checkBox_moveSanity.Text = "Move sanity";
+            this.toolTip1.SetToolTip(this.checkBox_moveSanity, "Moves between trainers \r\nand rentals are shared");
+            this.checkBox_moveSanity.UseVisualStyleBackColor = true;
             // 
             // checkBox_glc_pokemon
             // 
@@ -247,7 +262,7 @@
             // checkBox_glc_metronome
             // 
             this.checkBox_glc_metronome.AutoSize = true;
-            this.checkBox_glc_metronome.Location = new System.Drawing.Point(33, 212);
+            this.checkBox_glc_metronome.Location = new System.Drawing.Point(33, 238);
             this.checkBox_glc_metronome.Name = "checkBox_glc_metronome";
             this.checkBox_glc_metronome.Size = new System.Drawing.Size(103, 17);
             this.checkBox_glc_metronome.TabIndex = 19;
@@ -265,6 +280,7 @@
             this.checkBox_glc_stats.Text = "Stats";
             this.toolTip1.SetToolTip(this.checkBox_glc_stats, "Randomize Foe\'s stats");
             this.checkBox_glc_stats.UseVisualStyleBackColor = true;
+            this.checkBox_glc_stats.CheckedChanged += new System.EventHandler(this.checkBox_glc_stats_CheckedChanged);
             // 
             // checkBox_glc_items
             // 
@@ -461,18 +477,16 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // checkBox_moveSanity
+            // checkBox_statSanity
             // 
-            this.checkBox_moveSanity.AutoSize = true;
-            this.checkBox_moveSanity.Checked = true;
-            this.checkBox_moveSanity.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_moveSanity.Location = new System.Drawing.Point(286, 107);
-            this.checkBox_moveSanity.Name = "checkBox_moveSanity";
-            this.checkBox_moveSanity.Size = new System.Drawing.Size(83, 17);
-            this.checkBox_moveSanity.TabIndex = 22;
-            this.checkBox_moveSanity.Text = "Move sanity";
-            this.toolTip1.SetToolTip(this.checkBox_moveSanity, "Moves between trainers \r\nand rentals are shared");
-            this.checkBox_moveSanity.UseVisualStyleBackColor = true;
+            this.checkBox_statSanity.AutoSize = true;
+            this.checkBox_statSanity.Enabled = false;
+            this.checkBox_statSanity.Location = new System.Drawing.Point(54, 198);
+            this.checkBox_statSanity.Name = "checkBox_statSanity";
+            this.checkBox_statSanity.Size = new System.Drawing.Size(77, 17);
+            this.checkBox_statSanity.TabIndex = 23;
+            this.checkBox_statSanity.Text = "Stat Sanity";
+            this.checkBox_statSanity.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -538,6 +552,7 @@
         private System.Windows.Forms.CheckBox checkBox_leftoverChallennge;
         private System.Windows.Forms.CheckBox checkBox_glc_pokemon;
         private System.Windows.Forms.CheckBox checkBox_moveSanity;
+        private System.Windows.Forms.CheckBox checkBox_statSanity;
     }
 }
 

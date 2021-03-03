@@ -8,7 +8,7 @@ namespace Pokemon_Stadium_2_Randomizer
 {
     static class Version
     {
-        private static string versionString = "Version 0.030";
+        private static string versionString = "Version 0.031";
         public static string downloadLink;
         public static bool difVersion;
         private static string pasteLink = "https://pastebin.com/ECHhEd2G";
@@ -54,7 +54,7 @@ namespace Pokemon_Stadium_2_Randomizer
                 
             catch (Exception ex)
             {
-                    MessageBox.Show("Trouble connecting to the internet. You may be running outdated software!", "Pokemon Name Bot");
+                    MessageBox.Show("Trouble connecting to the internet. You may be running outdated software!", programName);
                     difVersion = false;
             }
 
